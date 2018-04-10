@@ -28,20 +28,34 @@ def get_dataset() :
                     img_arr = np.asarray(img)
                     img_arr = resize_imgs(img_arr,900)
 
-                    for i in range(0,300,300):
-                        for j in range(0,600,300):
-                            start_y = i  # Titik pengambilan pixel
-                            start_x = j
-                            new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
-                            image_list_train.append(new_img_arr)
-                            label_list_train.append(label)  # PENTING
-                    for i in range(3):
-                        for j in range(0,600,300):
-                            start_y = 600  # Titik pengambilan pixel
-                            start_x = j
-                            new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
-                            image_list_train.append(new_img_arr)
-                            label_list_train.append(label)  # PENTING
+                    for i in range(10):
+                        start_y = random.randint(0, 599)  # Titik pengambilan pixel
+                        start_x = random.randint(0, 599)
+                        new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
+                        image_list_train.append(new_img_arr)
+                        label_list_train.append(label)  # PENTING
+                    for i in range(5):
+                        start_y = random.randint(0, 599)  # Titik pengambilan pixel
+                        start_x = random.randint(0, 599)
+                        new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
+                        image_list_test.append(new_img_arr)
+                        label_list_test.append(label)  # PENTING
+
+                    # for i in range(0,300,300):
+                    #     for j in range(0,600,300):
+                    #         start_y = i  # Titik pengambilan pixel
+                    #         start_x = j
+                    #         new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
+                    #         image_list_train.append(new_img_arr)
+                    #         label_list_train.append(label)  # PENTING
+                    # for i in range(3):
+                    #     for j in range(0,600,300):
+                    #         start_y = 600  # Titik pengambilan pixel
+                    #         start_x = j
+                    #         new_img_arr = img_arr[start_x:start_x + 300, start_y:start_y + 300, :]
+                    #         image_list_train.append(new_img_arr)
+                    #         label_list_train.append(label)  # PENTING
+
                     n+=1
                 if n==3 : break
             label+=1
